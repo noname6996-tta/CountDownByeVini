@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="newyearletter.css">
+    <link rel="icon" href="./icon.png">
+    <title>Countdown Web</title>
+</head>
+
+<body>
+    <div class="layout_out_side">
+        <div class="heading">
+            <h3 id="title">Đếm ngày xa Vinicorp Dev6</h3>
+            <h1>Made by Thế Anh dev6</h1>
+        </div>
+
+        <div class="countdown">
+            <div class="box">
+                <span class="num" id="days">02</span>
+                <span class="text">Days</span>
+            </div>
+            <div class="box">
+                <span class="num" id="hours">02</span>
+                <span class="text">Hours</span>
+            </div>
+            <div class="box">
+                <span class="num" id="minutes">02</span>
+                <span class="text">Minutes</span>
+            </div>
+            <div class="box">
+                <span class="num" id="seconds">02</span>
+                <span class="text">Seconds</span>
+            </div>
+        </div>
+
+        <div class="heading2">
+            <h3 id="title2">Hãy chờ đến khi kết thúc để đón xem điều bất ngờ ạ</h3>
+        </div>
+    </div>
+
+    <div class="first_layout" id="imgVini">
+        <img src="./vini.jpg">
+    </div>
+
+    <div class="second_layout" id="note">
+        <h3>Cuối cùng thì giờ phút này cũng đến mới hôm nào còn được nhắc mail đi muộn mà hôm nay em đã phải mail tạm
+            biệt rồi.
+            Mà cũng đến lúc thôi và thực tế thì em mong nó đến sớm hơn, lý do vì nếu nó đến sớm thì em nghĩ mình sẽ lặng
+            lẽ rời đi thôi.
+            Nhưng mà sau hơn 1 năm gắn bó và làm việc với mọi người ở dev6 thì em cảm thấy không tệ như em nghĩ.
+            Câu chuyện thú vị là em vào thực tập từ tháng 2 năm 2023, em thề là lúc đó em kiểu khủng hoảng thật, em vừa
+            đi học vừa đi làm vào công ty lại toàn người cách xa thế hệ em (Em xin lỗi nhưng nói trắng ra là toàn cô chú
+            bác hì).
+            Uồi em kiểu thôi xong thế là phí hoài thanh xuân rồi.
+            Nhưng em thật sự sai, lúc vào mấy tháng đầu em được A trung, A Tâm, A tuấn giúp đỡ khá nhiều, xong bắt đầu
+            làm từng dự án với các anh chị bên dev4, sau đó từ tháng 9 bắt đầu mới tiếp xúc nhiều với mọi người dev6.
+            Có rất nhiều kỷ niệm vui từ đi du lịch với công ty hay liên hoan, mọi thứ gọi là hoàn hảo
+            Từ lúc đó cho đến giây phút cuối thì em thấy nơi này tuyệt thật, không phải cạnh tranh, mọi người hòa đồng,
+            thoải mái làm chính mình, em từng nghĩ mình sẽ ở lại với mọi người đến khi nghỉ hưu.
+            Nhưng mà em cảm thấy bản thân bị chững lại, em kiểu bắt đầu hơi chán công việc, em đã phải suy nghĩ đến câu
+            hỏi "5 năm nữa mình ở đâu và làm gì", vậy nên quyết định tìm môi trường để em quay lại làm kẻ tham vọng.
+        </h3>
+        <h3>Hard choices, easy life. Easy choices, hard life.</h3>
+        <h3>
+            Vậy hành trình của em với Vinicorp Dev6 tới đây là hết ạ. Em xin cảm ơn mọi người trong suốt thời gian qua,
+            mọi người chính là những người nâng đỡ em trên hành trình trưởng thành của mình ạ.
+            Phía dưới là phần thư em để lại lời chúc cho mỗi người ạ, mong mọi người đọc xong giữ kín ạ tại em ngại</h3>
+        <h5>Ps: Ý tưởng này là chị Bích bảo phải làm thiệp, mà em thấy mình thuận code hơn nên em code luôn cho nó nhanh
+        </h5>
+        <p id="user-id"></p>
+    </div>
+
+    <div class="letter" onclick="display_letter()" id="note2">
+        <div class="page increment " id="base" id="myinsp">
+            <div class="arrow-down"></div>
+            <div class="bottom_from">By Thế Anh</div>
+            <div id="hny">Bye</div>
+        </div>
+    </div>
+
+    <script>
+        let display_letter = () => {
+            let root = document.documentElement;
+            let base = document.getElementById('base')
+
+            root.style.setProperty('--page-height', '200px');
+            document.getElementById('hny').style.display = "block";
+            base.classList.remove('increment')
+        }
+    </script>
+
+    <script>
+        // Lấy tham số id từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+
+        fetch('loginData.json')
+            .then(response => response.json())
+            .then(loginData => {
+                const user = loginData.find(account => account.id === parseInt(id));
+
+                if (user) {
+                    document.getElementById("hny").textContent = user.message;
+                } else {
+                    document.getElementById("hny").textContent = "User not found!";
+                }
+            })
+            .catch(error => {
+                console.error('Error loading login data:', error);
+                document.getElementById("hny").textContent = "An error occurred!";
+            });
+    </script>
+
+    <script>
+        // Đặt ngày đếm ngược, ở đây mình đặt ngày đếm ngược là 01/01/2024
+        //February: Tháng hai, 01: Ngày, 2022: Năm, 00:00:00 or 24:00:00 thời gian của ngày đếm ngược
+        var countDownDate = new Date("September 12, 2024 17:00:00").getTime();
+        //var countDownDate = new Date("February 01, 2021 00:00:00").getTime();
+        // setInterval: Cập nhật đếm ngược sau mỗi 1 giây.
+        // 1000: 1 giây
+        //sau khi cập nhật trên git
+        var x = setInterval(function () {
+
+            // Ngày và giờ hôm nay
+            var now = new Date().getTime();
+
+            // Làm phép tính để đếm khoảng cách ngày hôm nay và ngày đếm ngược
+            var distance = countDownDate - now;
+
+            // Tính toán thời gian cho ngày, giờ, phút và giây
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days,
+                document.getElementById("hours").innerText = hours,
+                document.getElementById("minutes").innerText = minutes,
+                document.getElementById("seconds").innerText = seconds
+
+            // Nếu kết thúc quá trình đếm ngược thì in ra thông báo gì đó
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("title").innerHTML = "Thời gian chính thức kết thúc, Thế Anh tạm biệt và hẹn gặp lại.";
+                document.getElementById("title2").style.display = 'none';
+                document.getElementById("note").style.display = 'block';
+                document.getElementById("imgVini").style.display = 'block';
+                document.getElementById("note2").style.display = 'block';
+                document.getElementById("days").innerText = 0,
+                    document.getElementById("hours").innerText = 0,
+                    document.getElementById("minutes").innerText = 0,
+                    document.getElementById("seconds").innerText = 0
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

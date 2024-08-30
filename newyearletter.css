@@ -1,0 +1,198 @@
+:root {
+    --size-div: 3;
+    --page-width: 200px;
+    --page-height: 100px;
+    --color-white: #ffffff;
+    --color-black: #202020;
+    --color-glass: rgba(255, 255, 255, 0.05);
+    --color-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.layout_out_side {
+    width: 100%;
+    height: 100%;
+    background-image: url('./vnicucphuong.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0;
+}
+
+.first_layout {
+    margin-top: 100px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    display: none;
+}
+
+.first_layout img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.second_layout {
+    background-color: #ffe344; /* Màu vàng */
+    padding: 40px; /* Khoảng cách bên trong khung */
+    border-radius: 10px; /* Bo góc khung */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    max-width: 800px; /* Giới hạn chiều rộng khung */
+    text-align: center; /* Căn giữa văn bản */
+    margin: 100px auto 0 auto; /* Cách phía trên 100px và căn giữa theo chiều ngang */
+    position: relative; /* Để căn giữa theo chiều dọc */
+    overflow-wrap: break-word;
+    display: none;
+}
+
+/* Style cho văn bản */
+.second_layout h3 {
+    margin: 0;
+    font-size: 24px;
+    color: #3f3f3f;
+    font-family: Arial, sans-serif;
+}
+
+.second_layout h2 {
+    margin: 0;
+    font-size: 12px;
+    color: #3f3f3f;
+    font-family: Arial, sans-serif;
+}
+
+.second_layout h5 {
+    margin: 0;
+    font-size: 12px;
+    color: #3f3f3f;
+    font-family: Arial, sans-serif;
+}
+
+.countdown {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.box {
+    width: 28vmin;
+    height: 29vmin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+span.num {
+    background-color: var(--color-glass);
+    backdrop-filter: blur(12px);
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    font-size: 4em;
+    box-shadow: var(--color-shadow);
+    border-radius: 0.1em;
+}
+
+span.text {
+    font-size: 1em;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    width: 80%;
+    text-align: center;
+    padding: 0.7em 0;
+    font-weight: 600;
+    border-radius: 0.3em;
+    box-shadow: var(--color-shadow);
+    position: relative;
+    bottom: 20px;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 4em;
+}
+
+.heading2 {
+    text-align: center;
+    margin-bottom: 4em;
+    color: #ffffff;
+    font-size: 1.8em;
+}
+
+.heading h3 {
+    font-size: 1.6em;
+    color: #dadada;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    background-color: var(--color-glass);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--color-shadow);
+    padding: 8px 30px;
+    display: inline-block;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.heading h1 {
+    text-shadow: var(--color-shadow);
+    font-size: 1.5em;
+    font-weight: 800;
+    color: #dadada;
+    letter-spacing: 0.15em;
+}
+
+.letter {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 1200px;
+    margin-top: 500px;
+    position: absolute;
+    justify-content: center;
+}
+
+.increment:hover {
+    --size-div: 3.1;
+}
+
+.letter .page {
+    background: rgb(141, 167, 253);
+    width: calc(var(--page-width) * var(--size-div));
+    height: calc(var(--page-height) * var(--size-div));
+    margin: auto;
+    border-radius: calc(3.3px * var(--size-div));
+    box-shadow: calc(1.3px * var(--size-div)) calc(2.3px * var(--size-div)) #888888;
+}
+
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: calc(100px * var(--size-div)) solid transparent;
+    border-right: calc(100px * var(--size-div)) solid transparent;
+    border-top: calc(60px * var(--size-div)) solid #9ecafc;
+    border-radius: calc(3.3px * var(--size-div));
+}
+
+#hny {
+    text-align: center;
+    display: none;
+    padding: 24px;
+}
+
+.bottom_from {
+    padding: calc(26px * var(--size-div)) calc(7px * 3);
+    user-select: none;
+}

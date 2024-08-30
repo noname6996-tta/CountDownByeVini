@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .letter {
+            display: grid;
+            place-items: center;
+            width: 100%;
+            position: absolute;
+            height: 100%;
+            vertical-align: middle;
+            justify-content: center;
+        }
+
+        .increment:hover .page {
+            --size-div: 1.1;
+        }
+
+        .letter .page {
+            background: rgb(141, 167, 253);
+            width: calc(200px * var(--size-div));
+            height: calc(100px * var(--size-div));
+            margin: auto;
+            border-radius: calc(3.3px * var(--size-div));
+            box-shadow: 1.3px var(--size-div) 2.3px #888888;
+            transition: transform 0.2s;
+        }
+
+        .arrow-down {
+            width: 0;
+            height: 0;
+            border-left: calc(100px * var(--size-div)) solid transparent;
+            border-right: calc(100px * var(--size-div)) solid transparent;
+            border-radius: calc(3.3px * var(--size-div));
+            border-top: calc(60px * var(--size-div)) solid #9ecafc;
+        }
+
+        #hny {
+            text-align: center;
+            display: none;
+        }
+
+        .bottom_from {
+            padding: calc(26px * var(--size-div)) calc(7px * 3);
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="letter" onclick="display_letter()">
+        <div class="page increment" id="base" id="myinsp">
+            <div class="arrow-down"></div>
+            <div class="bottom_from">By Thế Anh</div>
+            <div id="hny">Happy New Year,
+                Chúc bạn và gia đình năm nay sẽ có nhiều hạnh phúc mới, mục tiêu mới, thành tựu mới và nhiều cảm hứng mới trong cuộc sống của bạn. Chúc cho mỗi ngày của năm mới đều tràn ngập thành công, hạnh phúc và an khang đến với bạn và những người bạn yêu quý.
+            </div>
+        </div>
+    </div>
+    <script>
+        let display_letter = () => {
+            let root = document.documentElement;
+            let base = document.getElementById('base');
+
+            root.style.setProperty('--size-div', '1');
+            root.style.setProperty('--page-height', '200px');
+            document.getElementById('hny').style.display = "block";
+            base.classList.remove('increment');
+        };
+    </script>
+</body>
+</html>
